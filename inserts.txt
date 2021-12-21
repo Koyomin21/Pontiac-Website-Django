@@ -1,0 +1,18 @@
+
+insert into "carApp_car"(name, price, description, quantity)
+values
+('Pontiac Astre', 3400, 'Year: 1977, Horsepower: 75, Engine, L: 2.5', 200),
+('Sunbird GT', 33000, 'Year: 1980, Horsepower: 115, Engine, L: 3.8', 105),
+('Pontiac Grandville 4 Door', 5700, 'Year: 1975, Horsepower: 200, Engine, L: 7.5', 120),
+('LeMans GTO', 30000, 'Year: 1973, Horsepower: 230, Engine, L: 5.7', 135),
+('Pontiac Ventura GTO', 22000, 'Year: 1974, Horsepower: 190, Engine, L: 4.5', 249),
+('Pontiac Grand Prix', 9300, 'Year: 1977, Horsepower: 185, Engine, L: 6.6', 178),
+('Bonneville SSE', 2500, 'Year: 1993, Horsepower: 170, Engine, L: 3.8', 213),
+('Pontiac Grand Prix Aero Coup', 24000, 'Year: 1986, Horsepower: 155, Engine, L: 5.0', 113),
+('Pontiac Fiero', 13000, 'Year: 1988, Horsepower: 135, Engine, L: 2.5', 302),
+('Turbo Trans-Am', 8000, 'Year: 1981, Horsepower: 165, Engine, L: 6.6', 287),
+('Tempest LeMans OHC Sprint 6', 30000, 'Year: 1966, Horsepower: 212, Engine, L: 3.7', 87),
+('Tempest LeMans', 16750, 'Year: 1963, Horsepower: 260, Engine, L: 3.5', 36)
+
+insert into "carApp_carimage"(path, car_id)
+select 'images/car.jpg', c.car_id from "carApp_car"
