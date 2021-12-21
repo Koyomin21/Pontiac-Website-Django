@@ -2,6 +2,7 @@
 
 
 {% load static %}
+{% load carApp_extras %}
 {% block content %}
   <div id="main">
     <div class="row"> 
@@ -16,8 +17,13 @@
        </form>
       </div>
     </div>
-    <div class="col-sm-12 col-md-9 col-lg-9"> 
+    <div class="col-sm-12 col-md-9 col-lg-9">
+      
+      {% for row in rows %} 
       <div class="row"> 
+        {% with index=row|indexes%}
+          
+        {% for car in cars|slice:index %}
         <div class="col-sm-12 col-md-3 col-lg-3 card"> 
           <img src="{% static 'images/car.jpg' %}">
           <h3> PONTIAC GTO </h3>
@@ -30,77 +36,10 @@
            <span class="dot" style="background-color: black;"></span> 
          </div>
          <a href="#"> Buy </a></div>
-
-         <div class="col-sm-12 col-md-3 col-lg-3 card"> 
-          <img src="{% static 'images/car.jpg' %}">
-          <h3> PONTIAC GTO </h3>
-          <hr>
-          <h4> $5050</h4>
-          <div class="row container-fluid justify-content-center dots">
-           <span class="dot" style="background-color: #9e0000;"></span>
-           <span class="dot" style="background-color: #1d7500;"></span>
-           <span class="dot" style="background-color: #001375;"></span>
-           <span class="dot" style="background-color: black;"></span> 
-         </div>
-         <a href="#"> Buy </a></div>
-
-         <div class="col-sm-12 col-md-3 col-lg-3 card">
-          <img src="{% static 'images/car.jpg' %}">
-          <h3> PONTIAC GTO </h3>
-          <hr>
-          <h4> $5050</h4>
-          <div class="row container-fluid justify-content-center dots">
-           <span class="dot" style="background-color: #9e0000;"></span>
-           <span class="dot" style="background-color: #1d7500;"></span>
-           <span class="dot" style="background-color: #001375;"></span>
-           <span class="dot" style="background-color: black;"></span>
-         </div>
-         <a href="#"> Buy </a>
-       </div>
+        {% endfor %}
+        {% endwith %}
      </div>
-
-      <div class="row"> 
-        <div class="col-sm-12 col-md-3 col-lg-3 card"> 
-          <img src="{% static 'images/car.jpg' %}">
-          <h3> PONTIAC GTO </h3>
-          <hr>
-          <h4> $5050</h4>
-          <div class="row container-fluid justify-content-center dots">
-           <span class="dot" style="background-color: #9e0000;"></span>
-           <span class="dot" style="background-color: #1d7500;"></span>
-           <span class="dot" style="background-color: #001375;"></span>
-           <span class="dot" style="background-color: black;"></span> 
-         </div>
-         <a href="#"> Buy </a></div>
-
-         <div class="col-sm-12 col-md-3 col-lg-3 card"> 
-          <img src="{% static 'images/car.jpg' %}">
-          <h3> PONTIAC GTO </h3>
-          <hr>
-          <h4> $5050</h4>
-          <div class="row container-fluid justify-content-center dots">
-           <span class="dot" style="background-color: #9e0000;"></span>
-           <span class="dot" style="background-color: #1d7500;"></span>
-           <span class="dot" style="background-color: #001375;"></span>
-           <span class="dot" style="background-color: black;"></span> 
-         </div>
-         <a href="#"> Buy </a></div>
-
-         <div class="col-sm-12 col-md-3 col-lg-3 card">
-          <img src="{% static 'images/car.jpg' %}">
-          <h3> PONTIAC GTO </h3>
-          <hr>
-          <h4> $5050</h4>
-          <div class="row container-fluid justify-content-center dots">
-           <span class="dot" style="background-color: #9e0000;"></span>
-           <span class="dot" style="background-color: #1d7500;"></span>
-           <span class="dot" style="background-color: #001375;"></span>
-           <span class="dot" style="background-color: black;"></span>
-         </div>
-         <a href="#"> Buy </a>
-         
-       </div>
-     </div>
+     {% endfor %} 
      
    </div>
  </div>
