@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog'
+    'carApp'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,7 @@ DATABASES = {
 
         'NAME': "WebProject",
 
-        'USER': 'anuar',
+        'USER': 'postgres',
 
         'PASSWORD': 'anuar123',
 

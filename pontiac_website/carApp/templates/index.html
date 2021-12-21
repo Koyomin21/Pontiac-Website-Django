@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+  {% load static %}
+  {% block content %}
+  <div id="main" class=" container-fluid pt-5">  
+    <h1> PONTIAC CAR MANUFACTURER</h1> 
+    <div class="row pt-4 pb-4"> <!-- row one -->
+      <div class="col-1 col-md-1 col-lg-1"> </div> <!-- side columns -->
+      <div class="col-12 col-md-4 col-lg-4" id="main-img">
+        <img src="{% static 'images/main1.jpg' %}" width="90%">
+      </div>
+      <div class="col-12 col-md-6 col-lg-6" id="main-blog">
+        <p>
+        Pontiac was an American automobile brand owned, manufactured, and commercialized by General Motors. Introduced as a companion make for GM's more expensive line of Oakland automobiles, Pontiac overtook Oakland in popularity and supplanted its parent brand entirely by 1933. </p>
+
+        <p>Sold in the United States, Canada, and Mexico by GM, in the hierarchy of GM's five divisions, it was slotted above Chevrolet, but below Oldsmobile, Buick, and Cadillac. Starting with the 1959 models, marketing was focused on selling the lifestyle that the car's ownership promised rather than the car itself. By emphasizing its "Wide Track" design, it billed itself as the "performance" division of General Motors, which "built excitement." </p>
+      </div>
+      <div class="col-1 col-md-1 col-lg-1"> </div> <!-- side columns -->
+    </div> <!-- row one -->
+
+    <hr>
+
+    <div class="row pt-5 pb-5 mb-4">  <!-- row two -->
+      <div class="col-1 col-md-1 col-lg-1"> </div>
+      <div class="col-12 col-md-6 col-lg-6" id="main-blog;">
+        <p class="ps-3">
+        Pontiac was an American automobile brand owned, manufactured, and commercialized by General Motors. Introduced as a companion make for GM's more expensive line of Oakland automobiles, Pontiac overtook Oakland in popularity and supplanted its parent brand entirely by 1933. </p>
+
+        <p class="ps-3">Sold in the United States, Canada, and Mexico by GM, in the hierarchy of GM's five divisions, it was slotted above Chevrolet, but below Oldsmobile, Buick, and Cadillac. Starting with the 1959 models, marketing was focused on selling the lifestyle that the car's ownership promised rather than the car itself. By emphasizing its "Wide Track" design, it billed itself as the "performance" division of General Motors, which "built excitement." </p>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4" id="main-img">
+        <img src="{% static 'images/main2.jpg' %}" width="90%" style="float: left;">
+      </div>
+      <div class="col-1 col-md-1 col-lg-1"> </div>
+    </div> <!-- row two -->
+
+    <hr>
+
+    <div class="row pt-4 pb-5 mb-4"> <!-- row three -->
+      <div class="col-1 col-md-1 col-lg-1"> </div> <!-- side columns -->
+      <div class="col-12 col-md-4 col-lg-4" id="main-img">
+        <img src="{% static 'images/main3.jpg' %}" width="90%">
+      </div>
+      <div class="col-12 col-md-6 col-lg-6" id="main-blog">
+        <p>
+        Pontiac was an American automobile brand owned, manufactured, and commercialized by General Motors. Introduced as a companion make for GM's more expensive line of Oakland automobiles, Pontiac overtook Oakland in popularity and supplanted its parent brand entirely by 1933. </p>
+
+        <p>Sold in the United States, Canada, and Mexico by GM, in the hierarchy of GM's five divisions, it was slotted above Chevrolet, but below Oldsmobile, Buick, and Cadillac. Starting with the 1959 models, marketing was focused on selling the lifestyle that the car's ownership promised rather than the car itself. By emphasizing its "Wide Track" design, it billed itself as the "performance" division of General Motors, which "built excitement." </p>
+      </div>
+      <div class="col-1 col-md-1 col-lg-1"> </div> <!-- side columns -->
+    </div> <!-- row three -->
+  </div> <!-- div id main -->
+{% endblock %}
