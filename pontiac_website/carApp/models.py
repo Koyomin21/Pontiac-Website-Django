@@ -10,7 +10,7 @@ class Car(models.Model):
 
 class Booking(models.Model):
     booking_id = models.AutoField(primary_key=True)
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    car_id = models.ForeignKey(Car, on_delete=models.CASCADE)
     status = models.CharField(max_length=70)
     startDate = models.DateField(auto_now=True)
     endDate = models.DateField()

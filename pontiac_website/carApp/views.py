@@ -1,7 +1,8 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
-from .models import AutoPart, CarImage, PartImage
+from .models import AutoPart, CarImage, Order, PartImage, Booking, Order, PartOrder
 from .models import Car
+import datetime
 
 
 # Create your views here.
@@ -112,10 +113,12 @@ def part_order(request):
     part_images = PartImage.objects.all()
     partImg = part_images.filter(part__part_id=partId).first()
     context ={
+        'id': partId,
         'name':part.name,
         'image': partImg,
         'price':part.price,
-        'description':part.description
+        'description':part.description,
+        'type':'part'
     }
     return render(request, 'cart.html',context)
 
@@ -126,10 +129,45 @@ def car_order(request):
     car_images = CarImage.objects.all()
 
     context ={
+        'id': carId,
         'name':car.name,
         'image': car_images.filter(car__car_id=carId).first(),
         'price':car.price,
-        'description':'pontiac musclecar'
+        'description':'pontiac musclecar',
+        'type':'car'
     }
     return render(request, 'cart.html',context)
+
+def orderCar(request):
+    id = request.GET.get('id')
+    bookings = Booking.objects.all()
+
+    car = Car.objects.get(pk= id)
+    bookings.create(
+        car_id=car,
+        status="Not Delivered",
+        endDate=datetime.date(2022,4,13)
+    )
+
+    return render(request, 'success.html')
+
+def orderPart(request):
+    partId = request.GET.get('id')
+    part = AutoPart.objects.get(pk=partId)
+    #create order
+    orders = Order.objects.all()
+    orders.create(
+        price = part.price,
+        delivery_date = datetime.date(2022,3,16),
+        delivery_address = 'Test address'
+    )
+    # create PartOrder
+    partOrders = PartOrder.objects.all()
+    partOrders.create(
+        part =part,
+        order_id = Order.objects.last().order_id,
+        quantity = 1
+    )
+
+    return render(request, 'success.html')
 
