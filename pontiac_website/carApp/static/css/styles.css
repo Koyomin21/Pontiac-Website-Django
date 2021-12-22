@@ -1,0 +1,174 @@
+	/*GENERAL*/
+	.navbar {
+		background: white;
+		font-size: 1.2em;
+		/*background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);*/
+	}
+	.nav-item {
+		width: 20%;
+		padding: 3%;
+		margin-left: 10%;
+	}
+	.nav-link {
+		width: 100%;
+		vertical-align: middle;
+		opacity: 1;
+		text-align: center;
+		padding:  3%;
+		color: black !important;
+		font-weight: bold;
+		border: 3px solid transparent;
+		transition: all 200ms ease-out;
+	}
+	.nav-link:hover {
+		border-bottom: 3px solid black;
+		border-top: 3px solid black;
+	}
+	.nav-item.active {
+		
+	}
+	#navbarNavAltMarkup {
+		margin-left:20%
+	}
+
+
+	body {
+		font-family: 'Raleway', sans-serif;
+	}
+	div, img, li {
+		/*border: 2px solid gray;*/
+	}
+	footer {
+		bottom: 0;
+		background-color: black;
+		text-align: center;
+	}
+	footer a,p {
+		text-decoration: none !important;
+		color: gray !important;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	footer img {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+
+	/*MAIN PAGE*/
+
+	.parallax {
+		background-repeat: no-repeat;
+		background-size: 100%;
+		min-height: 570px; 
+		background-attachment: fixed;
+		background-position: center;
+		background-size: cover;
+		opacity: 0.9;
+	}
+	#main {
+		display: block;
+		background-color:white; 
+		text-align: center;
+	}
+	#main hr, {
+		border: 1px solid gray;
+	}
+	#main-blog p{
+		width: 90%;
+		text-align: left;
+	}
+	#main-img img {
+		display: inline-block;
+		vertical-align: middle;
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	}
+	.patch *{
+		vertical-align: middle; 
+		display: inline-block;
+	}
+	.imgs * {
+		padding-top: 3%;
+		padding-bottom: 3%;
+		background-image: url("../images/film.png");
+		background-size: 135%;
+		/*background-repeat: repeat-y;*/
+	}
+
+	.imgs img {
+		width: 100%;
+		vertical-align: middle;
+		border: 2px solid transparent;
+		transition: all 400ms ease-out;
+		background-image: none;
+	}
+	.imgs img:hover {
+		border: 2px solid black;
+	}
+	#card {
+		opacity: 0.9;
+		/* border: 3px solid black; */
+		transition: all 500ms ease;
+		font-size: 1.1em;
+		background-color: white;
+
+	}
+
+	#cardcontact:hover {
+		color: white;
+		background-color: black;
+	}
+	#cardcontact svg {
+		margin-left: auto;
+	
+	}
+	#cardcontact p {
+		margin-top: 5%;
+		margin-left: 18%;
+	}
+	.card {
+		padding: 2%;
+		border: 1px solid transparent;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		transition: all 400ms ease-in;
+		text-align: center;
+		margin: 3%;
+	}
+	.card a {
+		margin-left: 25%;
+		padding: 2%;
+		font-size: 1.2em;
+		background-color: white;
+		color: black;
+		text-decoration: none;
+		font-weight: bold;
+		border:  5px solid black;
+		border-radius: 20px;
+		width: 50%;
+		margin-bottom: 4%;
+		transition: all 200ms ease-in;
+		margin-top: 5%;
+	}
+	.card h3, h4 {
+		color: black;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	.card:hover{
+		border: 1px solid black;
+	}
+	.card a:hover {
+		color: white;
+		background-color: black;
+	}
+	.dot {
+		height: 25px;
+		width: 25px;
+		background-color: #bbb;
+		margin-left: 5px;
+		border-radius: 50%;
+		display: inline-block;
+	}
+	.card img {
+		width: 100%;
+	}
