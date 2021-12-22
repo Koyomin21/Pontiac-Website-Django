@@ -89,7 +89,7 @@
 	.imgs * {
 		padding-top: 3%;
 		padding-bottom: 3%;
-		background-image: url("../images/film.png");
+		background-image: url("..static/images/film.png");
 		background-size: 135%;
 		/*background-repeat: repeat-y;*/
 	}

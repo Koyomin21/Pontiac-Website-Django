@@ -35,7 +35,7 @@
            <span class="dot" style="background-color: #001375;"></span>
            <span class="dot" style="background-color: black;"></span> 
          </div>
-         <a href="#"> Buy </a></div>
+         <a href="{% url 'car_order' %}?id={{car.id}}"> Buy </a></div>
         {% endfor %}
         {% endwith %}
      </div>

@@ -1,7 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
-from .models import CarImage
-from .models import Car
+from .models import Booking, Car, AutoPart, CarImage, PartImage
 import math
 
 # Create your views here.
@@ -15,11 +14,29 @@ def contacts(request):
 
     return render(request, 'contacts.html', context)
 
+def dealership(request):
+    context = {}
+    return render(request, "dealership.html", context)
 
 def history(request):
     context = {}
 
     return render(request, 'history.html', context)
+
+def insuranse(request):
+    context = {}
+
+    return render(request, "insurance.html", context)
+
+def services(request):
+    context = {}
+
+    return render(request, "services.html", context)
+
+def whyoriginal(request):
+    context = {}
+
+    return render(request, "whyoriginal.html", context)
 
 
 def car_catalog(request):
@@ -27,7 +44,8 @@ def car_catalog(request):
     fetched_cars = Car.objects.all()
     car_images = CarImage.objects.all()
     
-    cars = [ {'name':i.name, 'price': i.price, 'image': car_images.filter(car__car_id=i.car_id).first() } for i in fetched_cars ]
+    
+    cars = [ {'id':i.car_id,'name':i.name, 'price': i.price, 'image': car_images.filter(car__car_id=i.car_id).first() } for i in fetched_cars ]
     rows = range(math.ceil(len(cars)/3))
     print(rows)
 
@@ -38,10 +56,6 @@ def car_catalog(request):
 
     return render(request, 'cars.html', context)
 
-
-def dealership(request):
-    context = {}
-    return render(request, "dealership.html", context)
 
 
 def loan(request):
@@ -70,18 +84,55 @@ def loan(request):
 
     return render(request, "loans.html", context)
 
-def insuranse(request):
-    context = {}
 
-    return render(request, "insurance.html", context)
+def accessories_catalog(request):
 
-def services(request):
-    context = {}
+    fetched_parts = AutoPart.objects.all()
+    part_images = PartImage.objects.all()
 
-    return render(request, "services.html", context)
+    parts = [{
+        'id':i.part_id,
+        'name': i.name,
+        'price': i.price,
+        'image':  part_images.filter(part__part_id=i.part_id).first()
+    } for i in fetched_parts ]
 
-def whyoriginal(request):
-    context = {}
+    rows = range(len(parts)//3 + len(parts)%3*1)
+    print(rows)
 
-    return render(request, "whyoriginal.html", context)
+    context = {
+        'parts': parts,
+        'rows': rows
+    }
     
+    return render(request, 'accessories.html', context)
+
+
+def part_order(request):
+    partId= request.GET.get('id')
+    part = AutoPart.objects.get(pk=partId)
+
+    part_images = PartImage.objects.all()
+    partImg = part_images.filter(part__part_id=partId).first()
+    context ={
+        'name':part.name,
+        'image': partImg,
+        'price':part.price,
+        'description':part.description
+    }
+    return render(request, 'cart.html',context)
+
+def car_order(request):
+    carId = request.GET.get('id')
+    car = Car.objects.get(pk=carId)
+
+    car_images = CarImage.objects.all()
+
+    context ={
+        'name':car.name,
+        'image': car_images.filter(car__car_id=carId).first(),
+        'price':car.price,
+        'description':'pontiac musclecar'
+    }
+    return render(request, 'cart.html',context)
+

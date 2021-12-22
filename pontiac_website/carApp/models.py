@@ -10,6 +10,7 @@ class Car(models.Model):
 
 class Booking(models.Model):
     booking_id = models.AutoField(primary_key=True)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, null=True)
     status = models.CharField(max_length=70)
     startDate = models.DateField(auto_now=True)
     endDate = models.DateField()
@@ -25,10 +26,12 @@ class PartCategory(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
 
+
 class AutoPart(models.Model):
     part_id = models.AutoField(primary_key=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     category = models.ForeignKey(PartCategory, on_delete=models.CASCADE)
+    price = models.BigIntegerField()
     name = models.CharField(max_length=50, default="Something")
     description = models.TextField()
     quantity = models.IntegerField()

@@ -11,7 +11,9 @@ urlpatterns = [
     path('loans/', views.loan, name="loans"),
     path('insurance/', views.insuranse, name="insurance"),
     path('services/', views.services, name="services"),
-    path('whyoriginal/', views.whyoriginal, name="whyoriginal")
-    
+    path('whyoriginal/', views.whyoriginal, name="whyoriginal"),
 
+    path('accessories/',views.accessories_catalog, name='accessories_catalog'),
+    path('accessories/cartOrder/',views.part_order,name='part_order'),
+    path('booking/cartOrder/',views.car_order,name='car_order')
 ]
