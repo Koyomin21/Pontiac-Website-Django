@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-            <!-- Font Awesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -55,7 +55,7 @@
            <li class="nav-item dropdown p-2" style="width: 60%">
              <a class="nav-link p-2" href="#" data-bs-toggle="dropdown">  Special&nbsp;Offers  </a>
              <ul class="dropdown-menu">
-               <li><a class="dropdown-item" href="{% url 'loans' %}"> Loan calculator</a></li>
+               <li><a class="dropdown-item" href="loans.html"> Loan calculator</a></li>
                <li><a class="dropdown-item" href="{% url 'car_catalog' %}"> Buy Cars </a></li>
                <li><a class="dropdown-item" href="#"> Buy Accessories </a></li>
              </ul>
@@ -64,9 +64,9 @@
            <li class="nav-item dropdown p-2" style="width: 50%">
              <a class="nav-link p-2" href="#" data-bs-toggle="dropdown">  To&nbsp;Owners  </a>
              <ul class="dropdown-menu">
-               <li><a class="dropdown-item" href="{% url 'insurance' %}"> Insurance details</a></li>
-               <li><a class="dropdown-item" href="{% url 'services' %}"> Services </a></li>
-               <li><a class="dropdown-item" href="{% url 'whyoriginal' %}"> Why choose original? </a></li>
+               <li><a class="dropdown-item" href="insurance.html"> Insurance details</a></li>
+               <li><a class="dropdown-item" href="services.html"> Services </a></li>
+               <li><a class="dropdown-item" href="whyoriginal.html"> Why choose original? </a></li>
              </ul>
            </li>
  
@@ -74,14 +74,49 @@
        </div> <!-- navbar-collapse.// -->
      </div> <!-- container-fluid.// -->
    </nav>
-   <div class="container-fluid parallax ms-0 me-0 ps-0 pe-0" style="background-image: url('../static/images/pontiac.jpg');"> 
-   </div>
+   <div class="container-fluid parallax ms-0 me-0 ps-0 pe-0" style="background-image: url('../static/images/pontiac2.jpg');"> <br> <br><br><br>
 
-  {% block content%}
+    <div id="main" class="pt-4 pb-4 mt-5 ms-5 me-5 mb-5" style="background-color: rgba(255, 255, 255, 0.8);"> 
+      <div id="inl">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-left mt-5" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0v6z"/>
+        </svg>
+        <h2 class="mb-4"> What is a dealearship contract with us? </h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-right mt-5" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+        </svg>
+      </div>
+      <div class="row justify-content-center"> 
+        <div class="col-12 col-md-4 col-lg-4 p-2 me-5 ms-5 divide">
+          <h3> Things a dealer is responsible for:</h3>
+          <ul>
+            <li> Check the car appropriately when it comes to a retail center</li>
+            <li> Providing buyers with a service guarantee</li>
+            <li> Reference the actual manufacturers</li>
+            <li> Supporting only steer clear deals and not manipulating the ability to access cars </li>
+          </ul>
+        </div>
 
-  {% endblock %}
+        <div class="col-12 col-md-4 col-lg-4 p-2 ms-5 me-5 divide">
+          <h3> Advantages of joining our community:</h3> 
+          <ul>
+            <li> Free service of Pontiac cars owned by you</li>
+            <li> Access to prime meetings and design sessions </li>
+            <li> Discount at our shops and part in competitions</li>
+            <li> Right to distribute and represent Pontiac cars on official car events</li>
+          </ul>
+        </div>
+      </div>
 
-  <div class="container-fluid parallax ms-0 me-0 ps-0 pe-0" style="background-image: url('../static/images/pontiac2.jpg');"> </div>
+
+    </div>
+    <br> <br> <br>
+  </div>
+
+
+  <div class="container-fluid parallax ms-0 me-0 ps-0 pe-0" style="background-image: url('../static/images/pontiac.jpg');"> 
+    <a href="{% url 'contacts' %}" id="cntct" class="mt-0"> For further information, contact us</a>
+  </div>
 
   <footer>
     <div class="row container-fluid ms-0 me-0 ps-0 pe-0 pt-3">
@@ -105,7 +140,7 @@
  
 
 
-     <!-- JQuery -->
+<!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
