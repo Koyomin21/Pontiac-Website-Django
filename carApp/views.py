@@ -1,7 +1,10 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render
-from .models import Booking, Car, AutoPart, CarImage, PartImage
+from django.shortcuts import render, redirect, get_object_or_404
+
+from .forms import OrderForm
+from .models import Booking, Car, AutoPart, CarImage, PartImage, Order, PartOrder
+from django.views.generic import ListView, DetailView, CreateView
 import math
+import datetime
 
 # Create your views here.
 def index(request):
@@ -94,7 +97,8 @@ def accessories_catalog(request):
         'id':i.part_id,
         'name': i.name,
         'price': i.price,
-        'image':  part_images.filter(part__part_id=i.part_id).first()
+        'image':  part_images.filter(part__part_id=i.part_id).first(),
+        'type':'part'
     } for i in fetched_parts ]
 
     rows = range(len(parts)//3 + len(parts)%3*1)
@@ -115,6 +119,7 @@ def part_order(request):
     part_images = PartImage.objects.all()
     partImg = part_images.filter(part__part_id=partId).first()
     context ={
+        'id': partId,
         'name':part.name,
         'image': partImg,
         'price':part.price,
@@ -130,10 +135,66 @@ def car_order(request):
     car_images = CarImage.objects.all()
 
     context ={
+        'id': carId,
         'name':car.name,
         'image': car_images.filter(car__car_id=carId).first(),
         'price':car.price,
-        'description':'pontiac musclecar'
+        'description':'pontiac musclecar',
+        'type':'car'
     }
     return render(request, 'cart.html',context)
 
+
+
+def orderCar(request):
+    id = request.GET.get('id')
+    bookings = Booking.objects.all()
+
+    car = Car.objects.get(pk= id)
+    bookings.create(
+        car=car,
+        status="Not Delivered",
+        endDate=datetime.date(2022,4,13)
+    )
+
+    return render(request, 'success.html')
+
+def orderPart(request):
+    partId = request.GET.get('id')
+    part = AutoPart.objects.get(pk=partId)
+    #create order
+    orders = Order.objects.all()
+    orders.create(
+        price = part.price,
+        delivery_date = datetime.date(2022,3,16),
+        delivery_address = 'Test address'
+    )
+    # create PartOrder
+    partOrders = PartOrder.objects.all()
+    partOrders.create(
+        part =part,
+        order_id = Order.objects.last().order_id,
+        quantity = 1
+    )
+
+    return render(request, 'success.html')
+
+
+class OrderList(ListView):
+    model = Order
+    template_name = "orders.html"
+
+class OrderCreate(CreateView):
+    model = Order
+    fields = ['price', 'delivery_date', 'delivery_address']
+    template_name = "create_order.html"
+
+    def get_success_url(self):
+        return redirect('index')
+
+
+def createOrder(requset):
+    if requset.method == 'POST':
+        pass
+    else:
+        return redirect('createOrder')
