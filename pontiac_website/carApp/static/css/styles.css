@@ -23,19 +23,11 @@
 		border-bottom: 3px solid black;
 		border-top: 3px solid black;
 	}
-	.nav-item.active {
-		
-	}
 	#navbarNavAltMarkup {
 		margin-left:20%
 	}
-
-
 	body {
 		font-family: 'Raleway', sans-serif;
-	}
-	div, img, li {
-		/*border: 2px solid gray;*/
 	}
 	footer {
 		bottom: 0;
@@ -70,7 +62,7 @@
 		background-color:white; 
 		text-align: center;
 	}
-	#main hr, {
+	#main hr {
 		border: 1px solid gray;
 	}
 	#main-blog p{
@@ -89,7 +81,7 @@
 	.imgs * {
 		padding-top: 3%;
 		padding-bottom: 3%;
-		background-image: url("..static/images/film.png");
+		background-image: url("../images/film.png");
 		background-size: 135%;
 		/*background-repeat: repeat-y;*/
 	}
@@ -274,10 +266,6 @@
 	#inl * {
 		display: inline-block;
 	}
-
-	.divide {
-		/*border: 2px solid black;*/
-	}
 	.divide li {
 		text-align: left;
 	}
@@ -317,4 +305,9 @@
 	}
 	#carousel img {
 		width: 50%;
+	}
+	#service {
+		background-color: black;
+		color: white;
+		border-radius: 20px;
 	}
