@@ -15,5 +15,15 @@ urlpatterns = [
 
     path('accessories/',views.accessories_catalog, name='accessories_catalog'),
     path('accessories/cartOrder/',views.part_order,name='part_order'),
-    path('booking/cartOrder/',views.car_order,name='car_order')
+    path('booking/cartOrder/',views.car_order,name='car_order'),
+    
+    path('success/car',views.orderCar,name="successCar"),
+    path('success/part',views.orderPart,name="successPart"),
+    path('orders',views.OrderList.as_view(),name="orders"),
+    path('createOrder/',views.createOrder,name="createOrder"),
+
+    path('upd_order/<id>/',views.update_order,name="updateOrder"),
+    path('del_order/<id>/',views.delete_order,name="deleteOrder")
+
+
 ]

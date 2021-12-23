@@ -224,8 +224,12 @@ Procced Payment button
           </div>
         </div>
         <div class="proced_payment">
-          <a href="path to carOrder">Procced to payment</a>
-          <a href="path to partOrder">Procced to payment</a>
+          {% if type == 'part' %}
+          <a href="{% url 'successPart' %}?id={{id}}">Procced to payment</a>
+            {% endif %}
+            {% if type == 'car' %}
+          <a href="{% url 'successCar' %}?id={{id}}">Procced to payment</a>
+            {% endif %}
         </div>
       </div>
     </div>

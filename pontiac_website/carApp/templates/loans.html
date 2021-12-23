@@ -21,7 +21,7 @@
       <form id="loan" class="pt-2 pb-4">
         <legend> LOAN CALCULATOR</legend>
         <label for="months"> Number of months:</label> <br> <br>
-        <input type="range" name="months" min="6" max="24" step="1" class="slider" oninput="this.nextElementSibling.value = this.value" value="{{month}}">
+        <input type="range" name="months" min="6" max="24" step="1" class="slider" oninput="this.nextElementSibling.value = this.value">
         <output>{{month}}</output>
         <input type="text" name="cash" placeholder="loan amount" pattern="[0-9]+" value="{{loan_amount}}"> <br>
         <input type="submit" name="calc" value="calculate the loan" class="mt-4">

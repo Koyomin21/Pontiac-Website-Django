@@ -5,6 +5,12 @@
     <li>${{ object.price }}</li>
     <li>{{ object.delivery_date }}</li>
     <li>{{ object.delivery_address }}</li>
+    <button>
+        <a href="{% url 'updateOrder' object.order_id %}">Edit</a>
+    </button>
+    <button>
+        <a href="{% url 'deleteOrder' object.order_id %}">Delete</a>
+    </button>
  
     <hr/>
     <!-- If object_list is empty  -->

@@ -26,7 +26,6 @@ class PartCategory(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
 
-
 class AutoPart(models.Model):
     part_id = models.AutoField(primary_key=True)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
@@ -47,6 +46,9 @@ class Order(models.Model):
     order_date = models.DateField(auto_now=True)
     delivery_date = models.DateField()
     delivery_address = models.CharField(max_length=150)
+
+    def __str__(self) -> str:
+        return "Order: Price: " + str(self.price) + ", Delivery Date: " + str(self.delivery_date), ", Delivery address: " + str(self.delivery_address)
 
 class PartOrder(models.Model):
     part = models.ForeignKey(AutoPart, on_delete=models.CASCADE)
